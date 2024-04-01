@@ -67,7 +67,7 @@
 
                   <div class="row">
                     <div class="col-lg-3 col-md-4 label">Cedula</div>
-                    <div class="col-lg-9 col-md-8"> 000 </div>
+                    <div class="col-lg-9 col-md-8"> <?php echo $_SESSION['usuario']["cedula"]?> </div>
                   </div>
                 </div>
 
