@@ -8,8 +8,8 @@
                       <?php include_once "bin/component/header.php";?>
 
                       <?php include_once "bin/component/sidebar.php";?>
-                      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-                      <script src="https://code.highcharts.com/highcharts.js"></script>
+                      <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+                      <script src="assets/js/highcharts.js"></script>
   <main id="main" class="main">
 
     <div class="pagetitle">

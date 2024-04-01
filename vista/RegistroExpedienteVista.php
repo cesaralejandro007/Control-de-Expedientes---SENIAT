@@ -152,7 +152,7 @@
                         </td> 
 
                         <td>
-                          <button type="button" onclick="buscar_status_expediente(<?=$valor['id_expedientes'];?>, <?=$valor['NroProvi'];?>);" class="btn btn-primary ri-article-line" data-bs-toggle="modal" data-bs-target="#staticBackdrop2"></button> 
+                          <button type="button" onclick="buscar_status_expediente(<?=$valor['id_expedientes'];?>, '<?=$valor['NroProvi'];?>');" class="btn btn-primary ri-article-line" data-bs-toggle="modal" data-bs-target="#staticBackdrop2"></button> 
                           <div class="modal fade" id="staticBackdrop2" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                             <div class="modal-dialog modal-dialog-scrollable">
                               <div class="modal-content">

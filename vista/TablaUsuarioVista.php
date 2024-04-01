@@ -63,6 +63,8 @@
                           <option value="Supervisor">Supervisor</option>
                           <option value="Fiscal">Fiscal</option>
                           <option value="Ponente">Ponente</option>
+                          <option value="Revisor">Revisor</option>
+                          <option value="Archivista">Archivista</option>
                         </select>
                         <spam id="sAddFiscal"></spam>
                       </div>

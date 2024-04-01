@@ -206,7 +206,7 @@ function carga() {
       r = validarselect(
         this,
         document.getElementById("sAddFiscal"),
-        "* Seleccione un genero"
+        "* Seleccione un funcionario"
       );
     };
 
@@ -395,7 +395,7 @@ function valida_registrar() {
   );
 
   if(document.getElementById("AddFiscal").value == 0){
-    document.getElementById("sAddFiscal").innerHTML ="* Seleccione un genero";
+    document.getElementById("sAddFiscal").innerHTML ="* Seleccione un funcionario";
     document.getElementById("sAddFiscal").style.color = "red";
     document.getElementById("AddFiscal").classList.add("is-invalid");
   }else{

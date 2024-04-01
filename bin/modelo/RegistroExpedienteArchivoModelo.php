@@ -332,7 +332,7 @@ class RegistroExpedienteArchivoModelo extends connectDB
     
     public function listar_fiscal()
     {
-        $resultado = $this->conex->prepare("SELECT *, user.id as id_usuario FROM user,area,division WHERE user.id_area = area.id AND area.id_division = division.id AND nombre_rol = 'Ponente' AND division.nombrediv = 'División de Tramitaciones'");
+        $resultado = $this->conex->prepare("SELECT *, user.id as id_usuario FROM user,area,division WHERE user.id_area = area.id AND area.id_division = division.id AND nombre_rol = 'Archivista' AND division.nombrediv = 'División de Tramitaciones'");
         $respuestaArreglo = [];
         try {
             $resultado->execute();
