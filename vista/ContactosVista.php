@@ -19,28 +19,28 @@
 
       <div class="row gy-4">
 
-        <div class="col-xl-6">
+        <div class="col-xl-12">
 
           <div class="row">
-            <div class="col-lg-6">
+            <div class="col-lg-12">
               <div class="info-box card">
                 <i class="bi bi-geo-alt"></i>
                 <h3>Direccion</h3>
-                <p>ubicacion<br>VE 535022</p>
-              </div>
-            </div>
-            <div class="col-lg-6">
-              <div class="info-box card">
-                <i class="bi bi-telephone"></i>
-                <h3>Numero</h3>
-                <p>+00 00000000<br>+00 0000000</p>
+                <p>Torre David es un edificio público en Municipio Iribarren, Estado Lara ubicado en Calle 26. Torre David está situada circa de la universidad Decanato de Humanidades y Artes de la UCLA y Iglesia de Nuestra Señora de Concepcion.</p>
               </div>
             </div>
             <div class="col-lg-6">
               <div class="info-box card">
                 <i class="bi bi-envelope"></i>
                 <h3>Correo</h3>
-                <p>info@example.com<br>contact@example.com</p>
+                <p>cesaralejandrovidesgonzalez@gmail.com<br>cvides@seniat.gob.ve</p>
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="info-box card">
+                <i class="bi bi-telephone"></i>
+                <h3>Numero</h3>
+                <p>+58 04120318405</p>
               </div>
             </div>
             <div class="col-lg-6">
