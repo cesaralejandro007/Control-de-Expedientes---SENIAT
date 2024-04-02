@@ -8,7 +8,7 @@
                       <?php include_once "bin/component/header.php";?>
 
                       <?php include_once "bin/component/sidebar.php";?>
-                      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+                      <link rel="stylesheet" href="assets/css/bootstrap.min.css">
   <main id="main" class="main">
 
     <div class="pagetitle">
@@ -23,11 +23,11 @@
             <div class="card-body">
               <h5 class="card-title">Lista de Expedientes</h5>
               
-              <?php if($_SESSION['usuario']["nombre_rol"] == "Supervisor" || $_SESSION['usuario']["nombre_rol"] == "Administrador" || $_SESSION['usuario']["nombre_rol"] == "Super Usuario" ) { ?>
+<!--               <?php /* if($_SESSION['usuario']["nombre_rol"] == "Supervisor" || $_SESSION['usuario']["nombre_rol"] == "Administrador" || $_SESSION['usuario']["nombre_rol"] == "Super Usuario" ) {  */?>
               <button type="button" class="btn btn-primary m-1" id="nuevo">
                 Registrar Expediente
               </button>
-              <?php } ?>
+              <?php /* } */ ?> -->
 
               <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-scrollable">
@@ -69,7 +69,7 @@
                           </div>
                           <div class="col-12">
                           <div class="input-group">
-                            <label class="input-group-text" for="AddFiscal">Asignar Ponente</label>
+                            <label class="input-group-text" for="AddFiscal">Asignar Funcionario</label>
                             <select class="form-select" id="AddFiscal">
                               <option value="0" selected>Seleccionar Fiscal</option>
                               <?php foreach ($r2 as $key => $value) {?>

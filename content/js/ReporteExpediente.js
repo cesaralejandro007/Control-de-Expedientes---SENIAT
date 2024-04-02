@@ -82,7 +82,7 @@ Highcharts.chart('chart-container', {
     }],
     tooltip: {
         formatter: function () {
-            return 'Ubicación actual del expediente: ' + this.point.name + '<br>Movimiento anterior: ' + this.point.movimiento_de_expediante + '<br>Fecha del movimiento: ' + this.point.fecha + '<br>Responsable: ' + this.point.responsable;
+            return 'Ubicación actual del expediente: ' + this.point.name + '<br>Movimiento: ' + this.point.movimiento_de_expediante + '<br>Fecha del movimiento: ' + this.point.fecha + '<br>Responsable: ' + this.point.responsable;
         }
     }
 });

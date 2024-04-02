@@ -8,7 +8,7 @@
                       <?php include_once "bin/component/header.php";?>
 
                       <?php include_once "bin/component/sidebar.php";?>
-                      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+                      <link rel="stylesheet" href="assets/css/bootstrap.min.css">
   <main id="main" class="main">
 
     <div class="pagetitle">

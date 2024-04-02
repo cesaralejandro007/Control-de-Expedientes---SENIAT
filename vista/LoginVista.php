@@ -71,7 +71,7 @@ include_once "bin/component/head.php";
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
   <script src="assets/js/jquery-3.6.3.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="assets/js/sweetalert2@11.js"></script>
   <script src="content/js/Login.js"></script>
   <!-- Vendor JS Files -->
   <script src="assets/vendor/apexcharts/apexcharts.min.js"></script>
