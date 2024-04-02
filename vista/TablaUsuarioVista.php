@@ -8,28 +8,22 @@
   <?php include_once "bin/component/header.php";?>
 
   <?php include_once "bin/component/sidebar.php";?>
+  <main id="main" class="main p-0" style="background:#f8d7da">
+  
+  <div class="pagetitle">
+  <div class="d-flex justify-content-between align-items-end">
+  
+    <button type="button" class="btn m-2" style="background:#15406D;color:white" id="nuevo">
+      Registrar Usuario
+    </button>
 
-  <main id="main" class="main">
-
-    <div class="pagetitle">
-      <h1>Tabla de Datos</h1>
- 
-    </div><!-- End Page Title -->
-
-    <section class="section">
-      <div class="row">
-        <div class="col-lg-12">
-
-          <div class="card">
-            <div class="card-body">
-
-              <h5 class="card-title">Lista de Usuarios</h5>
-
-              <button type="button" class="btn btn-primary" id="nuevo">
-                Registrar Usuarios
-              </button>
-            <!-- Button trigger modal -->
-
+    <div class="py-3 px-4" style="border-radius: 0 0 0 50%; background:#FFC300;">
+      <h1 class="m-0">Lista de los Usuarios</h1>
+    </div>
+  </div>
+      <section class="section m-3">
+        <div class="row">
+          <div class="col-lg-12">
             <!-- Modal -->
         <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
               <div class="modal-dialog modal-dialog-scrollable">
@@ -104,12 +98,11 @@
                 </div>
               </div>
         </div>
-        <div class="card border mx-3">
-          <div class="table-responsive p-2">
+        <div class="card border">
+        <div class="table-responsive">
               <div class="d-flex flex-wrap justify-content-between m-1">
-              </div>
-              <!-- Table with stripped rows -->
-              <table id="funcionpaginacion" class="table datatable">
+                </div>
+                  <table id="funcionpaginacion" class="table datatable table-light table-striped table-hover">
                 <thead>
                   <tr>
                     <th scope="col">Cedula</th>
@@ -128,7 +121,7 @@
                     <td> <?php echo $valor['nombre_rol']; ?></td>
                     <td> <?php echo $valor['nombrearea']; ?></td>
                     <td> <?php echo $valor['nombrediv']; ?></td>
-                    <td>  <button type="button" class="btn btn-primary ri-edit-line" onclick="cargar_datos(<?=$valor['id_usuario'];?>);"> 
+                    <td>  <button type="button" class="btn ri-edit-line" style="background:#15406D;color:white"  onclick="cargar_datos(<?=$valor['id_usuario'];?>);"> 
                           </button>
                           <button type="button" class="btn btn-danger ri-delete-bin-2-line" onclick="eliminar(<?=$valor['id_usuario'];?>);"> 
                           </button> 

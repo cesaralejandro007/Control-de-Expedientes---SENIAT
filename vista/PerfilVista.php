@@ -8,14 +8,16 @@
   <?php include_once "bin/component/header.php";?>
 
   <?php include_once "bin/component/sidebar.php";?>
-
-  <main id="main" class="main">
-
-    <div class="pagetitle">
-      <h1>Perfil</h1>
-    </div><!-- End Page Title -->
-
-    <section class="section profile">
+  <main id="main" class="main p-0" style="background:#f8d7da">
+  
+  <div class="pagetitle">
+  <div class="d-flex justify-content-start align-items-end">
+  
+    <div class="py-3 px-4" style="border-radius: 0 0 50% 0; background:#FFC300;">
+      <h1 class="m-0">Perfil</h1>
+    </div>
+  </div>
+    <section class="section profile m-3">
       <div class="row">
         <div class="col-xl-4">
 

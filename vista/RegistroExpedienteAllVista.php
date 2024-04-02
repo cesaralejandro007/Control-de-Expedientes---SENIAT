@@ -9,26 +9,18 @@
 
                       <?php include_once "bin/component/sidebar.php";?>
                       <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-  <main id="main" class="main">
-
-    <div class="pagetitle">
-      <h1>Tabla de Datos</h1>
- 
-    </div><!-- End Page Title -->
-
-    <section class="section">
+                      <main id="main" class="main p-0" style="background:#f8d7da">
+  
+  <div class="pagetitle">
+  <div class="d-flex justify-content-start align-items-end">
+  
+    <div class="py-3 px-4" style="border-radius: 0 0 50% 0; background:#FFC300;">
+      <h1 class="m-0">Lista de todos los Expedientes</h1>
+    </div>
+  </div>
+    <section class="section m-2">
       <div class="row">
         <div class="col-lg-12">
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">Lista de Expedientes</h5>
-              
-<!--               <?php /* if($_SESSION['usuario']["nombre_rol"] == "Supervisor" || $_SESSION['usuario']["nombre_rol"] == "Administrador" || $_SESSION['usuario']["nombre_rol"] == "Super Usuario" ) {  */?>
-              <button type="button" class="btn btn-primary m-1" id="nuevo">
-                Registrar Expediente
-              </button>
-              <?php /* } */ ?> -->
-
               <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-scrollable">
                   <div class="modal-content">
@@ -104,10 +96,10 @@
               </div>
 
           <div class="card border">
-            <div class="table-responsive p-2">
+            <div class="table-responsive p-2 border">
               <div class="d-flex flex-wrap justify-content-between m-1">
                 </div>
-                  <table id="funcionpaginacion" class="table datatable">
+                  <table id="funcionpaginacion" class="table datatable table-light table-striped table-hover">
                     <thead>
                       <tr>
                       <th scope="col">Nro de Expediente</th>
@@ -116,14 +108,6 @@
                         <th scope="col">Área</th>
                         <th scope="col">Supervisor asignado</th>
                         <th scope="col">Estado</th>
-                        <th scope="col">Cambiar Estado</th>
-                        <th>Detalles de Expediente</th>
-                        <?php if($_SESSION['usuario']["nombre_rol"] == "Supervisor" || $_SESSION['usuario']["nombre_rol"] == "Administrador" || $_SESSION['usuario']["nombre_rol"] == "Super Usuario" ) { ?>
-                        <th>Editar Expediente</th>
-                        <?php } ?>
-                        <?php if($_SESSION['usuario']["nombre_rol"] == "Super Usuario" ) { ?>
-                        <th>Eliminar Expediente</th>
-                        <?php } ?>
                       </tr>
                     </thead>
                     <tbody>
@@ -153,114 +137,6 @@
                           
                           <?php } ?>
                         </td> 
-
-                        <td>
-                        <button type="button" onclick="buscar_status_expediente(<?=$valor['id_expedientes'];?>, '<?=$valor['NroProvi'];?>');" class="btn btn-primary ri-article-line" data-bs-toggle="modal" data-bs-target="#staticBackdrop2"></button>  
-                          <div class="modal fade" id="staticBackdrop2" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                            <div class="modal-dialog modal-dialog-scrollable">
-                              <div class="modal-content">
-                                <div class="modal-header">
-                                  <h1 class="modal-title fs-4" id="staticBackdropLabel">Cambiar el estado del Expediente</h1>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                  </div>
-                                  <div class="modal-body m-3">
-                                    <form class="row g-3 needs-validation" novalidate>
-                                      <input type="hidden" id="expedi_status">
-                                      <input type="hidden" id="nro_expediente">
-                                      <button type="button" id="btnProceso" class="btn btn-warning rounded-pill" onclick="cambiarEstado(this)">En proceso</button>
-                                      <button type="button" id="btnRevision" class="btn btn-success rounded-pill" onclick="cambiarEstado(this)">En revision</button> 
-                                      <!-- <button type="button" class="btn btn-success rounded-pill">Despachar</button>
-                                      <div class="modal-footer"> -->
-                                      <?php if($_SESSION['usuario']["nombre_rol"] == "Supervisor" || $_SESSION['usuario']["nombre_rol"] == "Administrador" || $_SESSION['usuario']["nombre_rol"] == "Super Usuario" ) { ?>
-                                      <h1 class="modal-title fs-5 text-danger" id="staticBackdropLabel">Traslado de Expediente de Área</h1>
-                                      <div class="input-group mb-1">
-                                        <label class="input-group-text" for="select_Area">Area</label>
-                                        <select class="form-select" id="select_Area" onchange="cambiar_area()">
-                                          <option value="0" selected>Seleccionar Área</option>
-                                          <?php foreach ($r4 as $key => $value) {?>
-                                            <option value="<?=$value['id_area'];?>"><?=$value['nombre_area'];?></option>
-                                          <?php }?>
-                                        </select>
-                                      </div>
-                                      <h1 class="modal-title fs-5 text-danger" id="staticBackdropLabel">Traslado de Expediente de División (Despacho)</h1>
-                                      <div class="input-group mb-1">
-                                        <label class="input-group-text" for="select_division">División</label>
-                                        <select class="form-select" id="select_division" onchange="cambiardivision()">
-                                          <option value="0" selected>Seleccionar división</option>
-                                          <?php foreach ($r3 as $key => $value) {?>
-                                            <option value="<?=$value['id'];?>"><?=$value['nombre_division'];?></option>
-                                          <?php }?>
-                                        </select>
-                                        <spam id="sselect_division"></spam>
-                                      </div>
-                                      <div id="seleccionar_area">
-                                      </div>
-                                      <?php } ?>
-                                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                                    </form>
-
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                        </td>
-                        <td>
-                          <button type="button" class="btn btn-primary ri-add-box-line" data-bs-toggle="modal" data-bs-target="#staticBackdrop3"></button> 
-                            <!-- Modal De datos de expedientes -->
-                          <div class="modal fade" id="staticBackdrop3" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                            <div class="modal-dialog modal-dialog-scrollable">
-                              <div class="modal-content">
-                                <div class="modal-header">
-                                  <h1 class="modal-title fs-5" id="staticBackdropLabel">Datos de Expediente</h1>
-                                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                </div>
-
-                                <div class="modal-body">
-                                <div class="container mt-2">
-                                  <table class="table table-bordered">
-                                      <tbody>
-                                          <tr>
-                                              <th>Nro de Providencia</th>
-                                              <td><?php echo $valor['NroProvi']; ?></td>
-                                          </tr>
-                                          <tr>
-                                              <th>Sujeto Pasivo</th>
-                                              <td><?php echo $valor['sujetoP']; ?></td>
-                                          </tr>
-                                          <tr>
-                                              <th>Rif</th>
-                                              <td><?php echo $valor['RifSP']; ?></td>
-                                          </tr>
-                                          <tr>
-                                              <th>Domicilio Fiscal</th>
-                                              <td><?php echo $valor['DomicilioFiscal']; ?></td>
-                                          </tr>
-                                          <tr>
-                                              <th>Funcionario Asignado</th>
-                                              <td><?php echo $valor['nombre_user']; ?></td>
-                                          </tr>
-                                      </tbody>
-                                  </table>
-                              </div>
-                                  <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                                  </div>
-                              </div>
-                            </div>
-                          </div>  
-                        </td>  
-                        <?php if($_SESSION['usuario']["nombre_rol"] == "Supervisor" || $_SESSION['usuario']["nombre_rol"] == "Administrador" || $_SESSION['usuario']["nombre_rol"] == "Super Usuario" ) { ?>
-                        <td> 
-                        <button type="button" class="btn btn-primary ri-edit-line" onclick="cargar_datos(<?=$valor['id_expedientes'];?>, <?=$valor['id_usuario'];?>);">
-                        </button>
-                        </td>
-                        <?php } ?>
-                        <?php if($_SESSION['usuario']["nombre_rol"] == "Super Usuario" ) { ?>
-                        <td>
-                          <button type="button" class="btn btn-danger ri-delete-bin-2-line" onclick="eliminar(<?=$valor['id_expedientes'];?>, <?=$valor['id_usuario'];?>);"> 
-                          </button> 
-                        </td>
-                        <?php } ?>
                         <?php } ?>
                     </tbody>
                     <tfooter>
@@ -271,14 +147,6 @@
                         <th scope="col">Área</th>
                         <th scope="col">Supervisor asignado</th>
                         <th scope="col">Estado</th>
-                        <th scope="col">Cambiar Estado</th>
-                        <th>Detalles de Expediente</th>
-                        <?php if($_SESSION['usuario']["nombre_rol"] == "Supervisor" || $_SESSION['usuario']["nombre_rol"] == "Administrador" || $_SESSION['usuario']["nombre_rol"] == "Super Usuario" ) { ?>
-                        <th>Editar Expediente</th>
-                        <?php } ?>
-                        <?php if($_SESSION['usuario']["nombre_rol"] == "Super Usuario" ) { ?>
-                        <th>Eliminar Expediente</th>
-                        <?php } ?>
                       </tr>
                     </tfooter>
                   </table>

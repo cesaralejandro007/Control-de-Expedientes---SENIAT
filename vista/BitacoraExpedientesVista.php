@@ -8,26 +8,24 @@
                       <?php include_once "bin/component/header.php";?>
 
                       <?php include_once "bin/component/sidebar.php";?>
-                      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-  <main id="main" class="main">
-
-    <div class="pagetitle">
-      <h1>Tabla de Datos</h1>
- 
-    </div><!-- End Page Title -->
-
-    <section class="section">
+                      <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+                      <main id="main" class="main p-0" style="background:#f8d7da">
+  
+  <div class="pagetitle">
+  <div class="d-flex justify-content-start align-items-end">
+  
+    <div class="py-3 px-4" style="border-radius: 0 0 50% 0; background:#FFC300;">
+      <h1 class="m-0">Lista de la Bitacora</h1>
+    </div>
+  </div>
+    <section class="section m-2">
       <div class="row">
         <div class="col-lg-12">
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">Lista de Bitacora Expedientes</h5>
-
           <div class="card border">
-            <div class="table-responsive p-2">
+          <div class="table-responsive p-2 border">
               <div class="d-flex flex-wrap justify-content-between m-1">
                 </div>
-                  <table id="funcionpaginacion" class="table datatable">
+                  <table id="funcionpaginacion" class="table datatable table-light table-striped table-hover">
                     <thead>
                       <tr>
                         <th scope="col">Fecha</th>
@@ -77,22 +75,6 @@
   
   <?php include_once "bin/component/footer.php";?>
   <script src="content/js/BitacoraExpedientes.js"></script>
-  <script>
-
-
-    document.addEventListener("DOMContentLoaded", function() {
-      var supervisorInput = document.getElementById("supervisor");
-      
-      // Deshabilitar el campo
-      supervisorInput.disabled = true;
-
-      // Evitar que se modifique mediante el inspector de código
-      supervisorInput.addEventListener("input", function(event) {
-        event.preventDefault();
-        return false;
-      });
-    });
-  </script>
 </body>
 
 </html>

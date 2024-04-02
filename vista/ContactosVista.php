@@ -9,13 +9,14 @@
 
   <?php include_once "bin/component/sidebar.php";?>
 
-  <main id="main" class="main">
-
-    <div class="pagetitle">
-      <h1>Contactos</h1>
-    </div><!-- End Page Title -->
-
-    <section class="section contact">
+  <main id="main" class="main p-0" style="background:#f8d7da">
+  <div class="d-flex justify-content-start align-items-end">
+  
+    <div class="py-3 px-4" style="border-radius: 0 0 50% 0; background:#FFC300;">
+      <h2 class="m-0">Contacto</h2>
+    </div>
+  </div>
+    <section class="section contact m-2">
 
       <div class="row gy-4">
 

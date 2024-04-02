@@ -1,13 +1,9 @@
 <!-- ======= Footer ======= -->
   <footer id="footer" class="footer">
     <div class="copyright">
-      &copy; Copyright <strong><span>Yoi</span></strong>. All Rights Reserved
+      &copy; Copyright <strong><span>Cesar Vides</span></strong>. All Rights Reserved
     </div>
-    <div class="credits">
-      Designed by <a href="https://bootstrapmade.com/">Yoi</a>
-    </div>
-
-    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
 
     <script src="plugins/jquery/jquery.js" crossorigin="anonymous"></script>

@@ -5,7 +5,7 @@
 include_once "bin/component/head.php";
 ?>
 
-<body style="background: #f33f3f">
+<body style="background: rgba(195, 49, 49, 0.989)">
 
   <main>
     <div class="container">

@@ -10,12 +10,9 @@
                       <?php include_once "bin/component/sidebar.php";?>
                       <link rel="stylesheet" href="assets/css/bootstrap.min.css">
                       <script src="assets/js/highcharts.js"></script>
-  <main id="main" class="main">
+<main id="main" class="main p-0">
 
     <div class="pagetitle">
-      <h1>Tabla de Datos</h1>
- 
-    </div><!-- End Page Title -->
 
     <section class="section">
       <div class="row">
@@ -39,23 +36,6 @@
   
   <?php include_once "bin/component/footer.php";?>
   <script src="content/js/ReporteExpediente.js"></script>
-
-  <script>
-
-
-    document.addEventListener("DOMContentLoaded", function() {
-      var supervisorInput = document.getElementById("supervisor");
-      
-      // Deshabilitar el campo
-      supervisorInput.disabled = true;
-
-      // Evitar que se modifique mediante el inspector de código
-      supervisorInput.addEventListener("input", function(event) {
-        event.preventDefault();
-        return false;
-      });
-    });
-  </script>
 </body>
 
 </html>

@@ -5,7 +5,7 @@ use config\componentes\configSistema as configSistema;
 
     <ul class="sidebar-nav" id="sidebar-nav">
 
-      <li class="nav-heading">Paginas</li>
+      <li class="nav-heading">Modulos</li>
       <?php if($_SESSION['usuario']["nombre_rol"] == "Administrador" || $_SESSION['usuario']["nombre_rol"] == "Super Usuario" ) { ?>
         <li class="nav-item">
           <a class="nav-link " href="?pagina=<?php configSistema::_PRINCIPAL_();?>">

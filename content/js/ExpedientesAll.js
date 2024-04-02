@@ -43,7 +43,7 @@ var keyup_direccion = /^[A-ZÁÉÍÓÚa-zñáéíóú0-9,.#%$^&*:\s]{2,100}$/;
          "sProcessing":"Procesando...",
           },
       //para usar los botones   
-      dom: "B<'row'<'col-sm-6'><'col-sm-6'f>>" +
+      dom: "<'row'<'col-sm-6'B><'col-sm-6'f>>" +
       "<'row'<'col-sm-12'tr>>" +
       "<'row'<'col-sm-5'il><'col-sm-7'p>>",
       colReorder: true,
@@ -232,13 +232,6 @@ function carga() {
     }
   };
 
-  document.getElementById("nuevo").onclick = function () {
-    limpiar();
-    $("#accion").val("registrar");
-    $("#titulo").text("Registrar Expediente");
-    $("#enviar").text("Registrar");
-    $("#staticBackdrop").modal("show");
-  };
 }
 
 document.getElementById("regis_select_division").onchange = function(){

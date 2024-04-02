@@ -42,7 +42,7 @@ $(document).ready(function() {
          "sProcessing":"Procesando...",
           },
       //para usar los botones   
-      dom: "B<'row'<'col-sm-6'><'col-sm-6'f>>" +
+      dom: "<'row'<'col-sm-6'B><'col-sm-6'f>>" +
       "<'row'<'col-sm-12'tr>>" +
       "<'row'<'col-sm-5'il><'col-sm-7'p>>",
       colReorder: true,

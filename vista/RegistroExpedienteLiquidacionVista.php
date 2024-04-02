@@ -9,26 +9,22 @@
 
                       <?php include_once "bin/component/sidebar.php";?>
                       <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-  <main id="main" class="main">
-
-    <div class="pagetitle">
-      <h1>Tabla de Datos</h1>
- 
-    </div><!-- End Page Title -->
-
-    <section class="section">
-      <div class="row">
-        <div class="col-lg-12">
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">Lista de Expedientes Liquidacion</h5>
-              
-              <?php if($_SESSION['usuario']["nombre_rol"] == "Supervisor" || $_SESSION['usuario']["nombre_rol"] == "Administrador" || $_SESSION['usuario']["nombre_rol"] == "Super Usuario" ) { ?>
-              <button type="button" class="btn btn-primary m-1" id="nuevo">
-                Registrar Expediente
-              </button>
-              <?php } ?>
-
+<main id="main" class="main p-0" style="background:#f8d7da">
+  
+  <div class="pagetitle">
+  <div class="d-flex justify-content-between align-items-end">
+    <?php if($_SESSION['usuario']["nombre_rol"] == "Supervisor" || $_SESSION['usuario']["nombre_rol"] == "Administrador" || $_SESSION['usuario']["nombre_rol"] == "Super Usuario" ) { ?>
+    <button type="button" class="btn m-2" style="background:#15406D;color:white" id="nuevo">
+      Registrar Expediente
+    </button>
+    <?php } ?>   
+    <div class="py-3 px-4" style="border-radius: 0 0 0 50%; background:#FFC300;">
+      <h1 class="m-0">Lista de Expedientes de la Área de Liquidación</h1>
+    </div>
+  </div>
+      <section class="section m-2">
+        <div class="row">
+          <div class="col-lg-12">
               <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-scrollable">
                   <div class="modal-content">
@@ -104,10 +100,10 @@
               </div>
 
           <div class="card border">
-            <div class="table-responsive p-2">
+          <div class="table-responsive p-2 border">
               <div class="d-flex flex-wrap justify-content-between m-1">
                 </div>
-                  <table id="funcionpaginacion" class="table datatable">
+                  <table id="funcionpaginacion" class="table datatable table-light table-striped table-hover">
                     <thead>
                       <tr>
                       <th scope="col">Nro de Expediente</th>
@@ -205,7 +201,7 @@
                             </div>
                         </td>
                         <td>
-                          <button type="button" class="btn btn-primary ri-add-box-line" data-bs-toggle="modal" data-bs-target="#staticBackdrop3"></button> 
+                          <button type="button" class="btn ri-add-box-line" style="background:#175BA2;color:white" data-bs-toggle="modal" data-bs-target="#staticBackdrop3"></button> 
                             <!-- Modal De datos de expedientes -->
                           <div class="modal fade" id="staticBackdrop3" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                             <div class="modal-dialog modal-dialog-scrollable">
@@ -251,7 +247,7 @@
                         </td>  
                         <?php if($_SESSION['usuario']["nombre_rol"] == "Supervisor" || $_SESSION['usuario']["nombre_rol"] == "Administrador" || $_SESSION['usuario']["nombre_rol"] == "Super Usuario" ) { ?>
                         <td> 
-                        <button type="button" class="btn btn-primary ri-edit-line" onclick="cargar_datos(<?=$valor['id_expedientes'];?>, <?=$valor['id_usuario'];?>);">
+                        <button type="button" class="btn ri-edit-line" style="background:#15406D;color:white" onclick="cargar_datos(<?=$valor['id_expedientes'];?>, <?=$valor['id_usuario'];?>);">
                         </button>
                         </td>
                         <?php } ?>
