@@ -4,13 +4,33 @@
 
 <?php include_once "bin/component/head.php";?>
 
+<style>
+  .boton-circular {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    background-color: #229954;
+    color: #fff;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 25px;
+    font-size: 12px;
+    cursor: pointer;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  .boton-circular:hover {
+    background-color: #145A32;
+  }
+</style>
+
 <body>
                       <?php include_once "bin/component/header.php";?>
 
                       <?php include_once "bin/component/sidebar.php";?>
                       <link rel="stylesheet" href="assets/css/bootstrap.min.css">
 <main id="main" class="main p-0" style="background:#f8d7da">
-  
+<input type="hidden" name="id_expediente_user" id="id_expediente_user"/>
 <div class="pagetitle">
 <div class="d-flex justify-content-between align-items-end">
   <?php if($_SESSION['usuario']["nombre_rol"] == "Supervisor" || $_SESSION['usuario']["nombre_rol"] == "Administrador" || $_SESSION['usuario']["nombre_rol"] == "Super Usuario" ) { ?>
@@ -127,7 +147,16 @@
                       <tr>
                         <td> <?php echo $valor['NroProvi']; ?></td>
                         <td>
-                        <?php echo $valor['nombre_user']; ?>
+                        <?php if($valor['status_exp'] == 0 ){ 
+                          if($_SESSION['usuario']["nombre_rol"] == "Supervisor" || $_SESSION['usuario']["nombre_rol"] == "Super Usuario"){
+                          ?>
+                          <button class="boton-circular" data-toggle="modal" data-target="#exampleModal" id="id_<?php echo $valor['id_expedientes']; ?>" onclick="cambiarfuncionario(<?php echo $valor['id_expedientes_usuario']; ?>)"><i class="fas fa-plus"></i></button>
+                          <?php }else{?>
+                            N/A
+                          <?php }
+                        }else{ ?>
+                          <?php echo $valor['nombre_user']; ?>
+                        <?php } ?>
                         </td>
                         <td>
                           <?php echo $valor['nombre_division']; ?>
@@ -231,10 +260,6 @@
                                               <th>Domicilio Fiscal</th>
                                               <td><?php echo $valor['DomicilioFiscal']; ?></td>
                                           </tr>
-                                          <tr>
-                                              <th>Archvista Asignado</th>
-                                              <td><?php echo $valor['nombre_user']; ?></td>
-                                          </tr>
                                       </tbody>
                                   </table>
                               </div>
@@ -284,6 +309,39 @@
           </div>
         </div>
     </section>
+
+    
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Asignar Archivista</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      <div class="input-group d-flex justify-content-center">
+    <input type="text" class='form-control letras_numeros' id='cedula_cambio_fun' placeholder="Buscar cédula" list='lista' oninput="validarSeleccion()">
+    <datalist id='lista'>
+        <option selected="" value="0"></option>
+        <?php foreach ($r2 as $key => $value) { ?>
+            <option value="<?=$value['cedula_user'];?>"><?=$value['nombre_user'];?></option>
+        <?php  } ?>
+    </datalist>
+    <button class="btn btn-outline-primary" id="agregarfuncionario" type="button" disabled>Agregar</button>
+</div>
+<span class="text-danger" id="validacion_cam_fun"></span>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
   </main><!-- End #main -->
   
   <?php include_once "bin/component/footer.php";?>

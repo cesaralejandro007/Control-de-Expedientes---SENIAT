@@ -184,19 +184,13 @@ function carga() {
   document.getElementById("enviar").onclick = function () {
     a = valida_registrar();
     if (a != "") {
-    }else if(document.getElementById("yourPassword").value != document.getElementById("yourPassword1").value){
-      document.getElementById("syourPassword").innerText = "la clave no coincide";
-      document.getElementById("syourPassword").style.color = "red";
-      document.getElementById("yourPassword").classList.add("is-invalid");
-    } else {
-      document.getElementById("syourPassword").innerText = "";
-      document.getElementById("yourPassword").classList.remove("is-invalid", "is-valid");
+    }else {
       var datos = new FormData();
       datos.append("id", $("#id").val());
       datos.append("accion", $("#accion").val());
       datos.append("cedula", $("#yourCedula").val());
       datos.append("nombre_apellido", $("#yourName").val());
-      datos.append("password", $("#yourPassword").val());
+      datos.append("password", "Seniat**");
       datos.append("cargo", $("#AddFiscal").val());
       datos.append("area", $("#area").val());
       enviaAjax(datos);
@@ -253,19 +247,14 @@ function validarkeyup(er, etiqueta, etiquetamensaje, mensaje) {
 function limpiar() {
   $("#yourCedula").val("");
   $("#yourName").val("");
-  $("#yourPassword").val("");
-  $("#yourPassword1").val("");
   $("#AddFiscal").val("");
   $("#area").val("");
   document.getElementById("syourCedula").innerText = "";
   document.getElementById("syourName").innerText = "";
-  document.getElementById("syourPassword").innerText = "";
   document.getElementById("sAddFiscal").innerText = "";
   document.getElementById("sarea").innerText = "";
   document.getElementById("yourCedula").classList.remove("is-invalid", "is-valid");
   document.getElementById("yourName").classList.remove("is-invalid", "is-valid");
-  document.getElementById("yourPassword").classList.remove("is-invalid", "is-valid");
-  document.getElementById("yourPassword1").classList.remove("is-invalid", "is-valid");
   document.getElementById("AddFiscal").classList.remove("is-invalid", "is-valid");
   document.getElementById("area").classList.remove("is-invalid", "is-valid");
 }
@@ -302,16 +291,6 @@ function valida_registrar() {
     document.getElementById("AddFiscal").classList.remove("is-invalid");
     document.getElementById("AddFiscal").classList.add("is-valid");
   }
-  if(document.getElementById("syourPassword").value != ""){
-    document.getElementById("syourPassword").innerHTML ="* Ingrese una contraseña";
-    document.getElementById("syourPassword").style.color = "red";
-    document.getElementById("yourPassword").classList.add("is-invalid");
-  }else{
-    document.getElementById("syourPassword").innerHTML ="";
-    document.getElementById("yourPassword").classList.remove("is-invalid");
-    document.getElementById("yourPassword").classList.add("is-valid");
-  }
-
   if (
     cedula == 0 ||
     nombre_apellido == 0 ||

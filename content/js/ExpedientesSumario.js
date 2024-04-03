@@ -260,6 +260,50 @@ function cambiardivision() {
   buscar_division_area(datos);
 }
 
+function cambiarfuncionario(id_expe){
+  document.getElementById('id_expediente_user').value = id_expe;
+}
+
+function validarSeleccion() {
+  var input = document.getElementById('cedula_cambio_fun');
+  var button = document.getElementById('agregarfuncionario');
+  var options = document.getElementById('lista').getElementsByTagName('option');
+  var inputValue = input.value.trim();
+  var found = false;
+
+  // Comprobar si el valor está en la lista de opciones
+  for (var i = 0; i < options.length; i++) {
+      if (options[i].value === inputValue) {
+          found = true;
+          break;
+      }
+  }
+
+  // Habilitar o deshabilitar el botón según si el valor está en la lista
+  if (found || inputValue === "") {
+      button.disabled = false;
+  } else {
+      button.disabled = true;
+  }
+
+  // Mostrar mensaje de validación
+  if (!found && inputValue !== "") {
+      document.getElementById('validacion_cam_fun').innerText = "El valor no está en la lista.";
+  } else {
+      document.getElementById('validacion_cam_fun').innerText = "";
+  }
+}
+
+document.getElementById('agregarfuncionario').onclick = function(){
+  var datos = new FormData();
+  datos.append("accion", "actualizar_funcionario_asignado");
+  datos.append("id_expediente", document.getElementById("id_expediente_user").value);
+  datos.append("cedula", document.getElementById("cedula_cambio_fun").value);
+  enviaAjax(datos);
+
+} 
+
+
 function enviar_expediente(){
   a = valida_registrar1();
   if (a != "") {

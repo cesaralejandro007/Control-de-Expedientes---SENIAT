@@ -184,9 +184,32 @@ class RegistroExpedienteModelo extends connectDB
         }
     }
 
+
+    public function actualizar_funcionario_asignados($id_expe, $cedula)
+    {
+        try {
+            $resultado = $this->conex->prepare("SELECT * FROM user WHERE cedula_user = '$cedula'");
+            $resultado->execute();
+            $respuestaArreglo = $resultado->fetchAll();
+            $id_usuario = $respuestaArreglo[0]['id'];
+            $this->conex->query("UPDATE userxexpediente, expedientes 
+            SET userxexpediente.id_user = '$id_usuario', 
+                expedientes.status_exp = '1' 
+            WHERE userxexpediente.id = '$id_expe' 
+                AND userxexpediente.id_expediente = expedientes.id;");
+            $respuesta["resultado"]=1;
+            $respuesta["mensaje"]="Modificación exitosa.";
+        } catch (Exception $e) {
+            $respuesta['resultado'] = 0;
+            $respuesta['mensaje'] = $e->getMessage();
+        }
+        return $respuesta;
+    }
+
+
     public function listar()
     {
-        $resultado = $this->conex->prepare("SELECT *,expedientes.id as id_expedientes, user.id as id_usuario FROM expedientes,estado_expediente,userxexpediente,user,area_expediente, division_expediente WHERE expedientes.id_estado_expedientes = estado_expediente.id and expedientes.id = userxexpediente.id_expediente AND userxexpediente.id_user = user.id and expedientes.id_area_expediente = area_expediente.id and division_expediente.id = area_expediente.id_division_expediente and division_expediente.nombre_division = 'División de Fiscalización'");
+        $resultado = $this->conex->prepare("SELECT *,expedientes.id as id_expedientes, user.id as id_usuario, userxexpediente.id as id_expedientes_usuario FROM expedientes,estado_expediente,userxexpediente,user,area_expediente, division_expediente WHERE expedientes.id_estado_expedientes = estado_expediente.id and expedientes.id = userxexpediente.id_expediente AND userxexpediente.id_user = user.id and expedientes.id_area_expediente = area_expediente.id and division_expediente.id = area_expediente.id_division_expediente and division_expediente.nombre_division = 'División de Fiscalización'");
         $respuestaArreglo = [];
         try {
             $resultado->execute();
@@ -303,7 +326,7 @@ class RegistroExpedienteModelo extends connectDB
             $respuesta['mensaje'] = "El expediente no se puede despechar en la misma división.";
         }else {
             try {
-                $this->conex->query("UPDATE expedientes SET id_area_expediente = '$id_area' WHERE id = '$id_expediente'");
+                $this->conex->query("UPDATE expedientes SET id_area_expediente = '$id_area', status_exp = 0  WHERE id = '$id_expediente'");
                 $respuesta["resultado"]=1;
                 $respuesta["mensaje"]="Modificación exitosa.";
             } catch (Exception $e) {

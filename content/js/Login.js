@@ -13,7 +13,7 @@ function carga() {
   };
   document.getElementById("contrasena").maxLength = 30;
   document.getElementById("contrasena").onkeypress = function (e) {
-    er = /^[A-Za-z0-9\s\b\u00f1\u00d1\u00E0-\u00FC]*$/;
+    er = /^[A-Za-z0-9*$%&*.,@#?¿\s\b\u00f1\u00d1\u00E0-\u00FC]*$/;
     validarkeypress(er, e);
   };
 
@@ -40,7 +40,7 @@ function carga() {
       keyup_clave,
       this,
       document.getElementById("spam2"),
-      "El campo debe contener de 6 a 20 caracteres."
+      "El campo debe contener de 1 a 30 caracteres."
     );
   };
 

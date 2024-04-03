@@ -130,6 +130,25 @@ if (is_file("vista/" . $pagina . "Vista.php")) {
             echo $datos;
             return 0;
             exit;
+        }else if ($accion == 'actualizar_funcionario_asignado') {
+            $response = $Expediente->actualizar_funcionario_asignados($_POST['id_expediente'],$_POST['cedula']);
+            if ($response['resultado']== 1) {
+                echo json_encode([
+                    'estatus' => '1',
+                    'icon' => 'success',
+                    'title' => $modulo,
+                    'message' => $response['mensaje']
+                ]);
+            }else {
+                echo json_encode([
+                    'estatus' => '2',
+                    'icon' => 'info',
+                    'title' => $modulo,
+                    'message' => $response['mensaje']
+                ]);
+            }
+            return 0;
+            exit;
         }else if ($accion == 'cambiar_area_expediente') {
             $response = $Expediente->cambiar_area_expedient($_POST['nro_expediente'],$_POST['area_expediente']);
             if ($response['resultado']== 1) {

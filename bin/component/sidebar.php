@@ -58,18 +58,6 @@ use config\componentes\configSistema as configSistema;
         </a>
       </li><!-- End Tables Nav -->
       <?php } ?>
-      <?php if($_SESSION['usuario']["nombre_rol"] == "Administrador" || $_SESSION['usuario']["nombre_rol"] == "Super Usuario" ) { ?>
-      <li class="nav-item">
-        <a class="nav-link collapsed"  href="?pagina=<?php configSistema::_BEX_();?>">
-          <i class="bi bi bi-layout-text-window-reverse"></i><span>Bitacora de expedientes</span>
-        </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link collapsed"  href="?pagina=<?php configSistema::_REPORTE_();?>">
-          <i class="bi bi bi-layout-text-window-reverse"></i><span>Reporte de Expediente</span>
-        </a>
-      </li>
-      <?php } ?>
       <?php if($_SESSION['usuario']["nombre_rol"] == "Super Usuario" ) { ?>
       <li class="nav-item">
         <a class="nav-link collapsed"  href="?pagina=<?php configSistema::_TU_();?>">
@@ -77,6 +65,20 @@ use config\componentes\configSistema as configSistema;
         </a>
       </li><!-- End Tables Nav -->
       <?php } ?>
+      <?php if($_SESSION['usuario']["nombre_rol"] == "Administrador" || $_SESSION['usuario']["nombre_rol"] == "Super Usuario" ) { ?>
+      <li class="nav-item">
+        <a class="nav-link collapsed"  href="?pagina=<?php configSistema::_BEX_();?>">
+          <i class="bi bi bi-layout-text-window-reverse"></i><span>Bitacora de expedientes</span>
+        </a>
+      </li>
+      <?php } ?>
+      <?php if($_SESSION['usuario']["nombre_rol"] == "Administrador" || $_SESSION['usuario']["nombre_rol"] == "Super Usuario" || $_SESSION['usuario']["nombre_rol"] == "Supervisor" ) { ?>
+        <li class="nav-item">
+          <a class="nav-link collapsed"  href="?pagina=<?php configSistema::_REPORTE_();?>">
+            <i class="bi bi bi-layout-text-window-reverse"></i><span>Reporte de Expediente</span>
+          </a>
+        </li>
+        <?php } ?>
       <li class="nav-item">
         <a class="nav-link collapsed" href="?pagina=<?php configSistema::_CONTACT_();?>">
           <i class="bi bi-envelope"></i>

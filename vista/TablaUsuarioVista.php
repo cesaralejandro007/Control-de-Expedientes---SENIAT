@@ -74,19 +74,6 @@
                       </select>
                       <spam id="sarea"></spam>
                       </div>
-
-                      <div class="col-12">
-                        <label for="yourPassword" class="form-label">Contraseña</label>
-                        <input type="password" name="password" class="form-control" id="yourPassword" required>
-                        <spam id="syourPassword"></spam>
-                      </div>
-
-                      <div class="col-12">
-                        <label for="yourPassword" class="form-label">Repita su Contraseña</label>
-                        <input type="password" name="password1" class="form-control" id="yourPassword1" required>
-                        <spam id="syourPassword1"></spam>
-                      </div>
-
                     </div>
                       <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
