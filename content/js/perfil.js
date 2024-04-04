@@ -25,7 +25,6 @@ document.getElementById("cambio_clave"). onclick = function(){
                 processData: false,
                 cache: false,
                 }).done(function (result) {
-                    alert(result);
                     if(result==1){
                         cambiarcontraseña( 
                             document.getElementById('clave1').value,
@@ -85,8 +84,6 @@ function mostrarPassword() {
 
 
   function cambiarcontraseña(contrasena,cedula){
-    alert(contrasena);
-    alert(cedula);
     var formData = new FormData();
     formData.append("accion", "cambiar_pasword");
     formData.append("nueva_clave", contrasena);
@@ -106,7 +103,6 @@ function mostrarPassword() {
         processData: false,
         cache: false,
         }).done(function (result){
-            alert(result)
           var res = JSON.parse(result);
           if (res.estatus == 1) {
             toastMixin.fire({

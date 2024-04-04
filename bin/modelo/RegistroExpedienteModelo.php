@@ -17,7 +17,8 @@ class RegistroExpedienteModelo extends connectDB
                 RifSP,
                 DomicilioFiscal,
                 id_area_expediente,
-                id_estado_expedientes
+                id_estado_expedientes,
+                status_exp
                 )
             VALUES(
                 '$nro_providencia',
@@ -25,7 +26,8 @@ class RegistroExpedienteModelo extends connectDB
                 '$rif',
                 '$domicilio_fiscal',
                 '$id_area',
-                '2'
+                '2',
+                '1'
             )");
 
             $resultado = $this->conex->query("SELECT * FROM expedientes WHERE NroProvi = '$nro_providencia'");
