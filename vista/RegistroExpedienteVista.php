@@ -31,11 +31,13 @@
 <input type="hidden" name="id_expediente_user" id="id_expediente_user"/>
   <div class="pagetitle">
   <div class="d-flex justify-content-between align-items-end">
-    <?php if($_SESSION['usuario']["nombre_rol"] == "Supervisor" || $_SESSION['usuario']["nombre_rol"] == "Administrador" || $_SESSION['usuario']["nombre_rol"] == "Super Usuario" ) { ?>
+    <?php if($_SESSION['usuario']["nombre_rol"] == "Supervisor"  || $_SESSION['usuario']["nombre_rol"] == "Super Usuario" ) { ?>
     <button type="button" class="btn m-2" style="background:#15406D;color:white" id="nuevo">
       Registrar Expediente
     </button>
-    <?php } ?>   
+    <?php }else{ ?>  
+    <div></div>
+  <?php } ?>   
     <div class="py-3 px-4" style="border-radius: 0 0 0 50%; background:#FFC300;">
       <h1 class="m-0">Lista de Expedientes de la Div. de Fiscalización</h1>
     </div>
@@ -131,7 +133,7 @@
                         <th scope="col">Estado</th>
                         <th scope="col">Cambiar Estado</th>
                         <th>Detalles de Expediente</th>
-                        <?php if($_SESSION['usuario']["nombre_rol"] == "Supervisor" || $_SESSION['usuario']["nombre_rol"] == "Administrador" || $_SESSION['usuario']["nombre_rol"] == "Super Usuario" ) { ?>
+                        <?php if($_SESSION['usuario']["nombre_rol"] == "Supervisor"  || $_SESSION['usuario']["nombre_rol"] == "Super Usuario" ) { ?>
                         <th>Editar Expediente</th>
                         <?php } ?>
                         <?php if($_SESSION['usuario']["nombre_rol"] == "Super Usuario" ) { ?>
@@ -140,7 +142,7 @@
                       </tr>
                     </thead>
                     <tbody>
-                    <?php foreach ($r1 as $valor) { if($valor['cedula_user']==$_SESSION['usuario']["cedula"] || $_SESSION['usuario']["nombre_rol"] == "Super Usuario" || $_SESSION['usuario']["nombre_rol"] == "Administrador" || $_SESSION['usuario']["nombre_rol"] == "Supervisor"){?>
+                    <?php foreach ($r1 as $valor) { if($valor['cedula_user']==$_SESSION['usuario']["cedula"] || $_SESSION['usuario']["nombre_rol"] == "Super Usuario"  || $_SESSION['usuario']["nombre_rol"] == "Supervisor"){?>
                       <tr>
                         <td> <?php echo $valor['NroProvi']; ?></td>
                         <td>
@@ -193,7 +195,7 @@
                                       <button type="button" id="btnRevision" class="btn btn-success rounded-pill" onclick="cambiarEstado(this)">En revision</button> 
                                       <!-- <button type="button" class="btn btn-success rounded-pill">Despachar</button>
                                       <div class="modal-footer"> -->
-                                      <?php if($_SESSION['usuario']["nombre_rol"] == "Supervisor" || $_SESSION['usuario']["nombre_rol"] == "Administrador" || $_SESSION['usuario']["nombre_rol"] == "Super Usuario" ) { ?>
+                                      <?php if($_SESSION['usuario']["nombre_rol"] == "Supervisor"  || $_SESSION['usuario']["nombre_rol"] == "Super Usuario" ) { ?>
                                       <h1 class="modal-title fs-5 text-danger" id="staticBackdropLabel">Traslado de Expediente de Área</h1>
                                       <div class="input-group mb-1">
                                         <label class="input-group-text" for="select_Area">Area</label>
@@ -267,7 +269,7 @@
                             </div>
                           </div>  
                         </td>  
-                        <?php if($_SESSION['usuario']["nombre_rol"] == "Supervisor" || $_SESSION['usuario']["nombre_rol"] == "Administrador" || $_SESSION['usuario']["nombre_rol"] == "Super Usuario" ) { ?>
+                        <?php if($_SESSION['usuario']["nombre_rol"] == "Supervisor"  || $_SESSION['usuario']["nombre_rol"] == "Super Usuario" ) { ?>
                         <td> 
                         <button type="button" class="btn ri-edit-line" style="background:#15406D;color:white" onclick="cargar_datos(<?=$valor['id_expedientes'];?>, <?=$valor['id_usuario'];?>);">
                         </button>
@@ -291,7 +293,7 @@
                         <th scope="col">Estado</th>
                         <th scope="col">Cambiar Estado</th>
                         <th>Detalles de Expediente</th>
-                        <?php if($_SESSION['usuario']["nombre_rol"] == "Supervisor" || $_SESSION['usuario']["nombre_rol"] == "Administrador" || $_SESSION['usuario']["nombre_rol"] == "Super Usuario" ) { ?>
+                        <?php if($_SESSION['usuario']["nombre_rol"] == "Supervisor"  || $_SESSION['usuario']["nombre_rol"] == "Super Usuario" ) { ?>
                         <th>Editar Expediente</th>
                         <?php } ?>
                         <?php if($_SESSION['usuario']["nombre_rol"] == "Super Usuario" ) { ?>

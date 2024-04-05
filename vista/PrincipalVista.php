@@ -7,7 +7,7 @@
 	<?php include_once "bin/component/header.php";?>
 
 	<?php include_once "bin/component/sidebar.php";?>
-
+  <?php if($_SESSION['usuario']["nombre_rol"] == "Administrador"  || $_SESSION['usuario']["nombre_rol"] == "Super Usuario" ) { ?>
   <main id="main" class="main p-0" style="background:#f8d7da">
   
   <div class="pagetitle">
@@ -94,8 +94,49 @@
         </div><!-- End Right side columns -->
     </section>
 
-  </main><!-- End #main -->
+    <?php }else{ ?>
+      <style>
+body {
+    background-image: url('assets/img/Bienvenidos.png');
+    background-size: 100vw 100vh;
+    background-position: center;
+    color: black;
+    margin: 0;
+    padding: 0;
+}
 
+.background-container {
+    position: relative;
+    width: 100%;
+    height: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.background-container h1 {
+    font-size: 3rem;
+}
+      </style>
+      <div class="background-container" id="backgroundContainer">
+          <!-- La imagen de fondo se agregará dinámicamente aquí -->
+      </div>
+  
+      <script>
+  document.addEventListener("DOMContentLoaded", function() {
+      // Crear un elemento h1 para el texto "Bienvenido"
+      var heading = document.createElement("h1");
+      heading.textContent = "Bienvenid@ de nuevo";
+  
+      // Agregar el elemento h1 al contenedor de fondo
+      var backgroundContainer = document.getElementById("backgroundContainer");
+      backgroundContainer.appendChild(heading);
+  });
+  
+      </script>
+  
+</main><!-- End #main -->
+<?php } ?>
 </body>
 
 	<?php include_once "bin/component/footer.php";?>
